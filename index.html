@@ -10,7 +10,9 @@
 <body>
   <header class="site-header">
     <div class="wrap nav">
-      <a class="brand" href="index.html">Five <span>Pixel</span> Games</a>
+      <a class="brand-mark" href="index.html" aria-label="Five Pixel Games home">
+        <img src="5%20pixel%20master%20alpha.png" alt="Five Pixel Games">
+      </a>
       <nav class="nav-links" aria-label="Primary">
         <a href="#games">Games</a>
         <a href="privacy-policy.html">Privacy</a>
@@ -21,24 +23,38 @@
 
   <main>
     <section class="hero">
-      <div class="wrap">
-        <p class="eyebrow">Independent game studio</p>
-        <h1>Five Pixel Games</h1>
-        <p>We make focused, approachable games built around responsive play, clear rules, and a little arcade energy.</p>
-        <div class="actions">
-          <a class="button primary" href="#games">See our games</a>
-          <a class="button" href="privacy-policy.html">Privacy policy</a>
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Independent game studio</p>
+          <h1>Five Pixel Games</h1>
+          <p>We make focused, approachable games built around responsive play, clear rules, and a little arcade energy.</p>
+          <div class="actions">
+            <a class="button primary" href="#games">See our games</a>
+            <a class="button" href="privacy-policy.html">Privacy policy</a>
+          </div>
+        </div>
+        <div class="hero-logo-wrap" aria-hidden="true">
+          <img class="hero-logo" src="5%20pixel%20master%20alpha.png" alt="">
         </div>
       </div>
     </section>
 
     <section class="section" id="games">
       <div class="wrap">
-        <div class="card">
-          <div class="status">Preparing for release</div>
-          <h2>Banana Frenzy</h2>
-          <p>An arcade-style catch-and-dodge game from Five Pixel Games. Banana Frenzy is currently being prepared for release.</p>
-        </div>
+        <article class="game-card">
+          <img class="game-banner" src="Banana%20Frenzy%201024x500.png" alt="Banana Frenzy promotional artwork">
+          <div class="game-body">
+            <img class="game-icon" src="BF%20Icon%20Final.png" alt="Banana Frenzy app icon">
+            <div class="game-copy">
+              <div class="status">Preparing for release</div>
+              <h2>Banana Frenzy</h2>
+              <p>An arcade-style catch-and-dodge game from Five Pixel Games. Banana Frenzy is currently being prepared for release.</p>
+              <div class="actions compact-actions">
+                <a class="button" href="privacy-policy.html">Privacy policy</a>
+              </div>
+            </div>
+          </div>
+        </article>
 
         <div class="grid">
           <div class="mini">
