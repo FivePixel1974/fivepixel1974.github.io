@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Banana Frenzy by Five Pixel Games: catch bananas, build streaks, chase high scores, and survive the frenzy. 50 levels plus Endless Mode.">
+  <title>Banana Frenzy | Five Pixel Games</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .bf-back{display:inline-flex;align-items:center;gap:8px;color:var(--accent-2);font-weight:750;text-decoration:none;margin:0 0 28px}
+    .bf-back:hover,.bf-back:focus-visible{text-decoration:underline}
+    .bf-hero{padding:40px 0 30px}
+    .bf-headerline{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:16px}
+    .bf-headerline .status{margin:0}
+    .bf-tags{color:var(--muted);font-size:.9rem;font-weight:650}
+    .bf-lead{display:grid;grid-template-columns:minmax(0,1fr) 150px;align-items:center;gap:32px}
+    .bf-lead h1{font-size:clamp(3rem,8vw,5.7rem);margin:0 0 16px}
+    .bf-tagline{font-size:clamp(1.16rem,2.5vw,1.5rem);line-height:1.45;color:var(--text);font-weight:750;max-width:670px;margin:0 0 12px}
+    .bf-intro{font-size:1.05rem;max-width:690px;color:var(--muted);margin:0}
+    .bf-icon{width:150px;height:150px;border-radius:28px;box-shadow:0 18px 38px rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.12)}
+    .bf-art{margin:32px 0 0;overflow:hidden;border-radius:22px;border:1px solid var(--line);background:var(--panel)}
+    .bf-art img{width:100%;height:auto;aspect-ratio:1024/500;object-fit:cover}
+    .bf-art figcaption{padding:9px 16px;color:var(--muted);font-size:.82rem}
+    .bf-section{padding:48px 0}
+    .bf-section h2{font-size:clamp(1.9rem,5vw,2.75rem);margin:0 0 14px}
+    .bf-section-lede{max-width:740px;margin:0 0 28px;color:var(--muted);font-size:1.08rem}
+    .bf-features{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .bf-feature{background:linear-gradient(160deg,rgba(16,40,68,.95),rgba(13,28,49,.95));border:1px solid var(--line);border-radius:18px;padding:24px}
+    .bf-feature h3{font-size:1.25rem;margin:0 0 10px;color:var(--text)}
+    .bf-feature p{margin:0;color:var(--muted)}
+    .bf-feature-label{display:inline-block;color:var(--accent);letter-spacing:.11em;text-transform:uppercase;font-weight:850;font-size:.73rem;margin-bottom:12px}
+    .bf-play{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(220px,.9fr);gap:22px;align-items:stretch}
+    .bf-play-copy{padding:30px;border:1px solid var(--line);border-radius:20px;background:rgba(13,28,49,.72)}
+    .bf-play-copy p{color:var(--muted);margin:0}
+    .bf-play-points{display:grid;gap:12px}
+    .bf-play-point{border:1px solid var(--line);border-radius:14px;padding:18px;background:rgba(16,40,68,.62)}
+    .bf-play-point strong{display:block;color:var(--text);font-size:1.15rem}
+    .bf-play-point span{display:block;color:var(--muted);font-size:.94rem}
+    .bf-cta{border:1px solid var(--line);border-radius:22px;padding:clamp(24px,5vw,42px);background:linear-gradient(125deg,rgba(16,40,68,.96),rgba(9,24,41,.96));margin:14px 0 64px}
+    .bf-cta h2{font-size:clamp(1.9rem,5vw,2.5rem);margin:0 0 12px}
+    .bf-cta p{color:var(--muted);max-width:650px;margin:0}
+    .bf-cta .actions{margin-top:22px}
+    @media(max-width:700px){
+      .bf-hero{padding-top:26px}
+      .bf-lead{grid-template-columns:1fr;gap:20px}
+      .bf-icon{width:96px;height:96px;border-radius:19px;grid-row:1}
+      .bf-features,.bf-play{grid-template-columns:1fr}
+      .bf-section{padding:34px 0}
+      .bf-art{margin-top:26px;border-radius:16px}
+      .bf-feature{padding:20px}
+      .bf-cta{margin-bottom:36px}
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand-mark" href="index.html" aria-label="Five Pixel Games home">
+        <img src="5%20pixel%20master%20alpha.webp" alt="Five Pixel Games">
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="index.html#games">Games</a>
+        <a href="privacy-policy.html">Privacy</a>
+        <a href="mailto:fivepixelgames@gmail.com">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="bf-hero">
+      <div class="wrap">
+        <a class="bf-back" href="index.html#games" aria-label="Back to all games">&#8592; All games</a>
+        <div class="bf-headerline">
+          <div class="status">Preparing for release</div>
+          <div class="bf-tags">Arcade &middot; Casual &middot; Single player &middot; Offline</div>
+        </div>
+        <div class="bf-lead">
+          <div>
+            <h1>Banana Frenzy</h1>
+            <p class="bf-tagline">Catch bananas, build streaks, chase high scores, and survive the frenzy!</p>
+            <p class="bf-intro">A fast-paced jungle arcade adventure from Five Pixel Games. Keep your catcher moving, time your catches, and make every basket count as the action ramps up.</p>
+            <div class="actions">
+              <a class="button primary" href="#gameplay">Explore gameplay</a>
+              <a class="button" href="privacy-policy.html">Privacy policy</a>
+            </div>
+          </div>
+          <img class="bf-icon" src="BF%20Icon%20Final.webp" alt="Banana Frenzy official app icon" width="150" height="150">
+        </div>
+        <figure class="bf-art">
+          <img src="Banana%20Frenzy%201024x500.webp" alt="Banana Frenzy official jungle-themed promotional artwork" width="1024" height="500" fetchpriority="high">
+          <figcaption>Official Banana Frenzy promotional artwork</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="bf-section" id="gameplay" aria-labelledby="bf-gameplay-heading">
+      <div class="wrap">
+        <h2 id="bf-gameplay-heading">Catch the good. Avoid the rotten.</h2>
+        <p class="bf-section-lede">Use left and right movement to line up your basket with falling bananas. Build a streak with successful catches, watch for special bananas, and stay alert when the pace picks up.</p>
+        <div class="bf-features">
+          <article class="bf-feature">
+            <span class="bf-feature-label">01 / Catch</span>
+            <h3>Every basket counts</h3>
+            <p>Position your catcher carefully and land bananas in the basket to keep your run alive.</p>
+          </article>
+          <article class="bf-feature">
+            <span class="bf-feature-label">02 / Score</span>
+            <h3>Build your streak</h3>
+            <p>Chain successful catches, push your score higher, and chase a new personal best.</p>
+          </article>
+          <article class="bf-feature">
+            <span class="bf-feature-label">03 / Power-ups</span>
+            <h3>Special banana surprises</h3>
+            <p>Look out for Golden Bananas, Shield Bananas, and Slow-Time Bananas. Watch out for Rotten Bananas.</p>
+          </article>
+          <article class="bf-feature">
+            <span class="bf-feature-label">04 / Challenge</span>
+            <h3>50 levels and Endless Mode</h3>
+            <p>Progress through 50 levels, then see how long you can keep the frenzy going in Endless Mode.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="bf-section" aria-labelledby="bf-adventure-heading">
+      <div class="wrap bf-play">
+        <div class="bf-play-copy">
+          <h2 id="bf-adventure-heading">A little jungle. A lot of action.</h2>
+          <p>Play across a colourful jungle setting with a changing day-and-night sky. Easy-to-understand controls meet increasingly demanding catch timing, rewarding focus, quick reactions, and smart use of special bananas.</p>
+        </div>
+        <div class="bf-play-points">
+          <div class="bf-play-point"><strong>50 levels</strong><span>Work through the arcade challenge.</span></div>
+          <div class="bf-play-point"><strong>Endless Mode</strong><span>Keep playing beyond the final level.</span></div>
+          <div class="bf-play-point"><strong>Offline play</strong><span>Enjoy the core game without an internet connection.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <section class="bf-cta" aria-labelledby="bf-release-heading">
+        <h2 id="bf-release-heading">Preparing for release</h2>
+        <p>Banana Frenzy is getting ready for its first release. The official store link will appear here when the game is publicly available.</p>
+        <div class="actions">
+          <a class="button primary" href="index.html#games">See all our games</a>
+          <a class="button" href="privacy-policy.html">Banana Frenzy privacy policy</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap footer-row">
+      <span>&copy; 2026 Five Pixel Games</span>
+      <span><a href="index.html">Five Pixel Games</a> &middot; <a href="privacy-policy.html">Banana Frenzy Privacy Policy</a></span>
+    </div>
+  </footer>
+</body>
+</html>
