@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Bubble Up by Five Pixel Games: lift bubbles, avoid thorns, discover power-ups and Mystic mastery, and explore a changing day-and-night sky.">
+  <title>Bubble Up | Five Pixel Games</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .bu-back{display:inline-flex;align-items:center;gap:8px;color:var(--accent-2);font-weight:750;text-decoration:none;margin:0 0 28px}
+    .bu-back:hover,.bu-back:focus-visible{text-decoration:underline}
+    .bu-hero{padding:40px 0 30px}
+    .bu-headerline{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:16px}
+    .bu-headerline .status{margin:0}
+    .bu-tags{color:var(--muted);font-size:.9rem;font-weight:650}
+    .bu-lead{display:grid;grid-template-columns:minmax(0,1fr) 150px;align-items:center;gap:32px}
+    .bu-lead h1{font-size:clamp(3rem,8vw,5.7rem);margin:0 0 16px}
+    .bu-tagline{font-size:clamp(1.16rem,2.5vw,1.5rem);line-height:1.45;color:var(--text);font-weight:750;max-width:670px;margin:0 0 12px}
+    .bu-intro{font-size:1.05rem;max-width:690px;color:var(--muted);margin:0}
+    .bu-icon{width:150px;height:150px;border-radius:28px;box-shadow:0 18px 38px rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.12)}
+    .bu-art{margin:32px 0 0;overflow:hidden;border-radius:22px;border:1px solid var(--line);background:var(--panel)}
+    .bu-art img{width:100%;height:auto;aspect-ratio:1024/500;object-fit:cover}
+    .bu-art figcaption{padding:9px 16px;color:var(--muted);font-size:.82rem}
+    .bu-section{padding:48px 0}
+    .bu-section h2{font-size:clamp(1.9rem,5vw,2.75rem);margin:0 0 14px}
+    .bu-section-lede{max-width:740px;margin:0 0 28px;color:var(--muted);font-size:1.08rem}
+    .bu-features{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .bu-feature{background:linear-gradient(160deg,rgba(16,40,68,.95),rgba(13,28,49,.95));border:1px solid var(--line);border-radius:18px;padding:24px}
+    .bu-feature h3{font-size:1.25rem;margin:0 0 10px;color:var(--text)}
+    .bu-feature p{margin:0;color:var(--muted)}
+    .bu-feature-label{display:inline-block;color:var(--accent);letter-spacing:.11em;text-transform:uppercase;font-weight:850;font-size:.73rem;margin-bottom:12px}
+    .bu-play{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(220px,.9fr);gap:22px;align-items:stretch}
+    .bu-play-copy{padding:30px;border:1px solid var(--line);border-radius:20px;background:rgba(13,28,49,.72)}
+    .bu-play-copy p{color:var(--muted);margin:0}
+    .bu-play-points{display:grid;gap:12px}
+    .bu-play-point{border:1px solid var(--line);border-radius:14px;padding:18px;background:rgba(16,40,68,.62)}
+    .bu-play-point strong{display:block;color:var(--text);font-size:1.15rem}
+    .bu-play-point span{display:block;color:var(--muted);font-size:.94rem}
+
+    .bu-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+    .bu-shot{display:block;text-decoration:none;color:inherit;overflow:hidden;border:1px solid var(--line);border-radius:18px;background:var(--panel);transition:transform .16s ease,border-color .16s ease}
+    .bu-shot:hover{transform:translateY(-2px);border-color:var(--accent-2)}
+    .bu-shot:focus-visible{outline:3px solid var(--accent-2);outline-offset:3px}
+    .bu-shot img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+    .bu-shot-caption{display:block;padding:14px 18px 16px}
+    .bu-shot-caption strong{display:block;font-size:1.05rem}
+    .bu-shot-caption small{display:block;color:var(--muted);font-size:.87rem;line-height:1.4;margin-top:4px}
+    .bu-shot:last-child{grid-column:1/-1;width:calc((100% - 18px)/2);justify-self:center}
+    .bu-gallery-note{color:var(--muted);font-size:.88rem;margin:14px 0 0}
+    @media(hover:none){.bu-shot:hover{transform:none}}
+    .bu-cta{border:1px solid var(--line);border-radius:22px;padding:clamp(24px,5vw,42px);background:linear-gradient(125deg,rgba(16,40,68,.96),rgba(9,24,41,.96));margin:14px 0 64px}
+    .bu-cta h2{font-size:clamp(1.9rem,5vw,2.5rem);margin:0 0 12px}
+    .bu-cta p{color:var(--muted);max-width:650px;margin:0}
+    .bu-cta .actions{margin-top:22px}
+    @media(max-width:700px){
+      .bu-hero{padding-top:26px}
+      .bu-lead{grid-template-columns:1fr;gap:20px}
+      .bu-icon{width:96px;height:96px;border-radius:19px;grid-row:1}
+      .bu-features,.bu-play{grid-template-columns:1fr}
+      .bu-gallery{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;padding:2px 2px 15px;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+      .bu-shot,.bu-shot:last-child{flex:0 0 min(82vw,370px);width:auto;scroll-snap-align:start;justify-self:auto}
+      .bu-shot-caption{padding:12px 14px 14px}
+      .bu-section{padding:34px 0}
+      .bu-art{margin-top:26px;border-radius:16px}
+      .bu-feature{padding:20px}
+      .bu-cta{margin-bottom:36px}
+    }
+  
+    /* Bubble Up's five real portrait screenshots: no crops, responsive swipe on phones. */
+    .bu-gallery{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .bu-shot img{aspect-ratio:9/16;object-fit:contain;background:#091a2c}
+    .bu-shot:last-child{grid-column:auto;width:auto;justify-self:stretch}
+    @media(max-width:700px){
+      .bu-gallery{display:flex;gap:14px}
+      .bu-shot,.bu-shot:last-child{flex:0 0 min(74vw,330px);width:auto}
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand-mark" href="index.html" aria-label="Five Pixel Games home"><img src="5%20pixel%20master%20alpha.webp" alt="Five Pixel Games"></a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="index.html#games">Games</a>
+        <a href="bubble-up-privacy-policy.html">Privacy</a>
+        <a href="mailto:fivepixelgames@gmail.com">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="bu-hero">
+      <div class="wrap">
+        <a class="bu-back" href="index.html#games" aria-label="Back to all games">&#8592; All games</a>
+        <div class="bu-headerline">
+          <div class="status">In development</div>
+          <div class="bu-tags">Arcade &middot; Casual &middot; Single player &middot; Offline</div>
+        </div>
+        <div class="bu-lead">
+          <div>
+            <h1>Bubble Up</h1>
+            <p class="bu-tagline">Tap to keep your bubbles floating and protect them from dangerous thorns.</p>
+            <p class="bu-intro">A colourful portrait arcade adventure from Five Pixel Games. Discover helpful power-ups, evolve Mystic bubbles through mastery, and take on changing challenges beneath a day-and-night sky.</p>
+            <div class="actions">
+              <a class="button primary" href="#gameplay">Explore gameplay</a>
+              <a class="button" href="#screenshots">Screenshots</a>
+              <a class="button" href="bubble-up-privacy-policy.html">Privacy policy</a>
+            </div>
+          </div>
+          <img class="bu-icon" src="BU_Icon_Web.webp" alt="Bubble Up app icon" width="150" height="150">
+        </div>
+        <figure class="bu-art">
+          <img src="BU_Feature_Graphic_Web.webp" alt="Bubble Up promotional artwork featuring bubbles and a changing sky" width="1024" height="500" fetchpriority="high">
+          <figcaption>Official Bubble Up promotional artwork</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="bu-section" id="gameplay" aria-labelledby="bu-gameplay-heading">
+      <div class="wrap">
+        <h2 id="bu-gameplay-heading">Keep them floating. Keep them safe.</h2>
+        <p class="bu-section-lede">Guide your bubbles with taps, protect them from the thorns above, and adapt to new hazards and helpful surprises as the run progresses.</p>
+        <div class="bu-features">
+          <article class="bu-feature"><span class="bu-feature-label">01 / Tap</span><h3>Rise with every tap</h3><p>Keep your bubbles moving upward while managing the changing challenges around them.</p></article>
+          <article class="bu-feature"><span class="bu-feature-label">02 / Survive</span><h3>Watch the thorns</h3><p>Protect your bubbles from dangerous obstacles and stay in control of the playfield.</p></article>
+          <article class="bu-feature"><span class="bu-feature-label">03 / Discover</span><h3>Useful power-ups</h3><p>Look for special effects and opportunities to help your bubbles survive.</p></article>
+          <article class="bu-feature"><span class="bu-feature-label">04 / Master</span><h3>Mystic bubble evolution</h3><p>Develop mastery, unlock Mystic forms, and see how far you can progress.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="bu-section" id="screenshots" aria-labelledby="bu-screens-heading">
+      <div class="wrap">
+        <h2 id="bu-screens-heading">See Bubble Up in action</h2>
+        <p class="bu-section-lede">Five gameplay captures from the approved V25 game, showcasing Ascension, power-ups, changing skies, and advanced challenges. Select any screenshot to view it larger.</p>
+        <div class="bu-gallery">
+          <a class="bu-shot" href="screenshots/bubble-up/01_Stage23_Ascension.webp" target="_blank" rel="noopener" aria-label="View full-size screenshot: Ascension at Stage 23">
+            <img src="screenshots/bubble-up/01_Stage23_Ascension.webp" alt="Bubble Up gameplay screenshot showing Stage 23 and Ascension progression" width="1080" height="1920" loading="lazy" decoding="async">
+            <span class="bu-shot-caption"><strong>Ascension at Stage 23</strong><small>Bubble Up Stage 23 gameplay featuring early Ascension progress.</small></span>
+          </a>
+          <a class="bu-shot" href="screenshots/bubble-up/02_Early_Powerup.webp" target="_blank" rel="noopener" aria-label="View full-size screenshot: Early power-up">
+            <img src="screenshots/bubble-up/02_Early_Powerup.webp" alt="Bubble Up early gameplay with an available power-up" width="1080" height="1920" loading="lazy" decoding="async">
+            <span class="bu-shot-caption"><strong>Early power-up</strong><small>Discover useful power-ups during the early stages.</small></span>
+          </a>
+          <a class="bu-shot" href="screenshots/bubble-up/03_Storm_Night.webp" target="_blank" rel="noopener" aria-label="View full-size screenshot: Storm at night">
+            <img src="screenshots/bubble-up/03_Storm_Night.webp" alt="Bubble Up storm trial gameplay in the night setting" width="1080" height="1920" loading="lazy" decoding="async">
+            <span class="bu-shot-caption"><strong>Storm at night</strong><small>Face a trial beneath the nighttime sky.</small></span>
+          </a>
+          <a class="bu-shot" href="screenshots/bubble-up/04_Boom_Sunset.webp" target="_blank" rel="noopener" aria-label="View full-size screenshot: Boom at sunset">
+            <img src="screenshots/bubble-up/04_Boom_Sunset.webp" alt="Bubble Up Boom trial gameplay at sunset" width="1080" height="1920" loading="lazy" decoding="async">
+            <span class="bu-shot-caption"><strong>Boom at sunset</strong><small>See the Boom trial during the changing sky.</small></span>
+          </a>
+          <a class="bu-shot" href="screenshots/bubble-up/05_Endless_Chaos.webp" target="_blank" rel="noopener" aria-label="View full-size screenshot: Endless Chaos">
+            <img src="screenshots/bubble-up/05_Endless_Chaos.webp" alt="Bubble Up Endless Chaos advanced gameplay screenshot" width="1080" height="1920" loading="lazy" decoding="async">
+            <span class="bu-shot-caption"><strong>Endless Chaos</strong><small>A look at the challenges of advanced gameplay.</small></span>
+          </a>
+        </div>
+        <p class="bu-gallery-note">On a phone, swipe across the gallery to see all five portrait screenshots.</p>
+      </div>
+    </section>
+
+    <section class="bu-section" aria-labelledby="bu-adventure-heading">
+      <div class="wrap bu-play">
+        <div class="bu-play-copy">
+          <h2 id="bu-adventure-heading">A changing sky. A growing challenge.</h2>
+          <p>Enjoy portrait arcade action through changing day-and-night scenery, new trials and bubble mastery. Simple tap controls meet an evolving game that rewards timing, awareness and persistence.</p>
+        </div>
+        <div class="bu-play-points">
+          <div class="bu-play-point"><strong>Portrait gameplay</strong><span>Designed around a fixed, consistent playfield.</span></div>
+          <div class="bu-play-point"><strong>Mystic mastery</strong><span>Progress through special bubble forms.</span></div>
+          <div class="bu-play-point"><strong>Offline play</strong><span>Play the core game without an internet connection.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <section class="bu-cta" aria-labelledby="bu-release-heading">
+        <h2 id="bu-release-heading">In development</h2>
+        <p>Bubble Up is being tested and prepared for release. Its official store link will appear here when available.</p>
+        <div class="actions">
+          <a class="button primary" href="index.html#games">See all our games</a>
+          <a class="button" href="bubble-up-privacy-policy.html">Bubble Up privacy policy</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer><div class="wrap footer-row">
+    <span>&copy; 2026 Five Pixel Games</span>
+    <span><a href="index.html">Five Pixel Games</a> &middot; <a href="bubble-up-privacy-policy.html">Bubble Up Privacy Policy</a></span>
+  </div></footer>
+</body>
+</html>
